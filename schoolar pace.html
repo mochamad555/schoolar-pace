@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholars Pace Daily Studio ✨ | Aesthetic Student Routine & Habit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        aura: {
+                            violet: '#a855f7',
+                            pink: '#ec4899',
+                            rose: '#f43f5e',
+                            cyan: '#06b6d4',
+                            amber: '#f59e0b',
+                            emerald: '#10b981',
+                            indigo: '#6366f1',
+                            sky: '#38bdf8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Outfit', 'sans-serif'],
+                        aesthetic: ['Outfit', 'Fredoka', 'sans-serif'],
+                    },
+                    animation: {
+                        'glow-pulse': 'glowPulse 3s ease-in-out infinite alternate',
+                        'float-gentle': 'floatGentle 4s ease-in-out infinite',
+                        'gradient-x': 'gradientX 6s ease infinite',
+                    },
+                    keyframes: {
+                        glowPulse: {
+                            '0%': { filter: 'drop-shadow(0 0 12px rgba(236, 72, 153, 0.6))' },
+                            '100%': { filter: 'drop-shadow(0 0 24px rgba(168, 85, 247, 0.95))' }
+                        },
+                        floatGentle: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-8px) rotate(1deg)' }
+                        },
+                        gradientX: {
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at 10% 20%, rgba(244, 114, 182, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
+                        linear-gradient(135deg, #fdf4ff 0%, #f0f9ff 50%, #f0fdf4 100%);
+            min-height: 100vh;
+        }
+        .dark body {
+            background: radial-gradient(circle at 10% 20%, rgba(217, 70, 239, 0.18) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.18) 0%, transparent 40%),
+                        linear-gradient(135deg, #090d16 0%, #0f172a 50%, #170d2b 100%);
+        }
+        .font-aesthetic {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-aesthetic {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+        .dark .glass-aesthetic {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-glow-pink {
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.35);
+        }
+        .neon-glow-violet {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4);
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300 pb-12">
+
+    <header class="sticky top-0 z-40 bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b-2 border-pink-200/80 dark:border-purple-900/50 shadow-lg shadow-pink-500/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Aesthetic English Logo & Branding -->
+            <div class="flex items-center gap-3">
+                <div class="p-3 bg-gradient-to-tr from-aura-pink via-aura-violet to-aura-cyan text-white rounded-2xl shadow-lg shadow-purple-500/30 animate-glow-pulse">
+                    <i data-lucide="sparkles" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <h1 class="font-aesthetic text-2xl sm:text-3xl font-black tracking-tight bg-gradient-to-r from-aura-pink via-aura-violet via-aura-cyan to-aura-emerald bg-clip-text text-transparent animate-gradient-x drop-shadow-sm">
+                        Scholars Pace ✨
+                    </h1>
+                    <p class="text-[11px] font-extrabold text-aura-violet dark:text-aura-pink tracking-widest uppercase flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-aura-pink animate-ping"></span>
+                        Aesthetic Routine Studio for <span id="header-student-name" class="font-black text-aura-pink dark:text-aura-amber underline decoration-wavy decoration-aura-violet">Bintang Sekolah</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Controls Widget -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="open-name-modal-btn" class="flex items-center gap-1.5 px-3.5 py-2.5 rounded-2xl bg-gradient-to-r from-aura-violet to-aura-pink hover:scale-105 text-white font-extrabold text-xs shadow-md shadow-pink-500/25 transition-all">
+                    <i data-lucide="user-check" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Custom Name</span>
+                </button>
+
+                <div class="hidden md:flex items-center gap-2 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-purple-950/60 dark:to-blue-950/60 px-4 py-2 rounded-2xl border-2 border-pink-300/50 dark:border-purple-700/50 text-xs font-bold text-purple-700 dark:text-purple-300 shadow-sm">
+                    <i data-lucide="calendar" class="w-4 h-4 text-aura-pink"></i>
+                    <span id="current-date-text">Today</span>
+                </div>
+
+                <button id="theme-toggle" class="p-3 rounded-2xl bg-gradient-to-tr from-amber-300 to-orange-400 dark:from-indigo-600 dark:to-purple-700 text-white shadow-md shadow-orange-500/20 hover:scale-105 transition-all" title="Toggle Theme">
+                    <i id="theme-toggle-dark-icon" data-lucide="moon" class="w-5 h-5 hidden"></i>
+                    <i id="theme-toggle-light-icon" data-lucide="sun" class="w-5 h-5 hidden"></i>
+                </button>
+
+                <button id="reset-btn" class="p-3 rounded-2xl bg-gradient-to-tr from-rose-500 to-red-600 text-white shadow-md shadow-rose-500/20 hover:scale-105 transition-all" title="Reset Today">
+                    <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+        <!-- HERO SECTION WITH AESTHETIC STYLING AND CUSTOM STUDENT NAME -->
+        <section class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-aura-pink via-aura-violet to-aura-cyan p-6 sm:p-8 text-white shadow-2xl shadow-purple-500/25 border-4 border-white/40 animate-gradient-x">
+            <div class="absolute -top-12 -right-12 w-64 h-64 bg-amber-300/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-cyan-300/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-black tracking-wider uppercase border border-white/40 shadow-sm">
+                            <span id="time-badge-icon" class="text-amber-300">☀️</span>
+                            <span id="greeting-time-tag">GOOD MORNING!</span>
+                        </div>
+
+                        <button id="trigger-name-modal-hero" class="inline-flex items-center gap-1.5 bg-amber-300 text-slate-900 font-black px-3.5 py-1.5 rounded-full text-xs hover:bg-amber-200 transition-all shadow-md group">
+                            <span>Bintang Sekolah: <strong id="hero-badge-student-name">Bintang Sekolah</strong></span>
+                            <i data-lucide="edit-3" class="w-3.5 h-3.5 group-hover:rotate-12 transition-transform"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <h2 id="greeting-title" class="font-aesthetic text-3xl sm:text-5xl font-black text-white drop-shadow-md tracking-tight">
+                            Hey, Bintang Sekolah! ✨
+                        </h2>
+                    </div>
+
+                    <p id="quote-text" class="text-white/95 text-sm sm:text-base max-w-xl font-medium leading-relaxed drop-shadow-sm">
+                        "Make today so awesome that yesterday gets jealous. Radiate positivity and crush your goals!"
+                    </p>
+
+                    <!-- Student Avatar Selector -->
+                    <div class="flex items-center gap-2 pt-2">
+                        <span class="text-xs font-extrabold text-white/80 uppercase tracking-wider">Aesthetic Emoji:</span>
+                        <div class="flex gap-1.5 bg-black/20 p-1.5 rounded-2xl backdrop-blur-md border border-white/20">
+                            <button data-avatar="✨" class="avatar-btn hover:scale-125 transition-all text-xl p-1 rounded-xl bg-white/20">✨</button>
+                            <button data-avatar="🚀" class="avatar-btn hover:scale-125 transition-all text-xl p-1 rounded-xl">🚀</button>
+                            <button data-avatar="🦄" class="avatar-btn hover:scale-125 transition-all text-xl p-1 rounded-xl">🦄</button>
+                            <button data-avatar="🎨" class="avatar-btn hover:scale-125 transition-all text-xl p-1 rounded-xl">🎨</button>
+                            <button data-avatar="⚡" class="avatar-btn hover:scale-125 transition-all text-xl p-1 rounded-xl">⚡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Progress Badge -->
+                <div class="bg-white/20 backdrop-blur-2xl p-5 rounded-3xl border-2 border-white/40 flex items-center gap-5 shadow-2xl min-w-[240px] justify-between hover:scale-105 transition-all">
+                    <div>
+                        <p class="text-[11px] font-black uppercase text-amber-200 tracking-widest">Daily Progress</p>
+                        <p id="hero-progress-percent" class="font-aesthetic text-4xl font-black text-white drop-shadow">0%</p>
+                        <p class="text-[11px] text-white/90 font-bold mt-1">Keep glowing & conquering!</p>
+                    </div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-300 to-yellow-400 flex items-center justify-center shadow-lg shadow-amber-500/40 text-slate-900 border-2 border-white animate-float-gentle">
+                        <i data-lucide="trophy" class="w-9 h-9"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="flex overflow-x-auto custom-scrollbar gap-2 p-2 bg-white/70 dark:bg-slate-800/70 rounded-3xl border-2 border-pink-200 dark:border-purple-800/60 shadow-md">
+            <button data-tab="timeline" class="tab-btn active-tab flex items-center gap-2 px-6 py-3 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all whitespace-nowrap bg-gradient-to-r from-aura-pink to-aura-violet text-white shadow-lg shadow-pink-500/30">
+                <i data-lucide="clock" class="w-4 h-4"></i> Routine Timeline
+            </button>
+            <button data-tab="habits" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-aura-pink hover:bg-pink-50 dark:hover:bg-slate-700">
+                <i data-lucide="flame" class="w-4 h-4 text-aura-amber"></i> Habit Streaks
+            </button>
+            <button data-tab="todo" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-aura-violet hover:bg-purple-50 dark:hover:bg-slate-700">
+                <i data-lucide="check-square" class="w-4 h-4 text-aura-violet"></i> Task Board
+            </button>
+            <button data-tab="pomodoro" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-aura-cyan hover:bg-cyan-50 dark:hover:bg-slate-700">
+                <i data-lucide="timer" class="w-4 h-4 text-aura-cyan"></i> Focus Timer
+            </button>
+            <button data-tab="stats" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-aura-emerald hover:bg-emerald-50 dark:hover:bg-slate-700">
+                <i data-lucide="bar-chart-2" class="w-4 h-4 text-aura-emerald"></i> Analytics
+            </button>
+        </nav>
+
+        <section id="tab-timeline" class="tab-content space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/80 dark:bg-slate-800/80 p-5 rounded-3xl border-2 border-pink-200 dark:border-slate-700 shadow-sm">
+                <div>
+                    <h3 class="font-aesthetic text-xl font-black flex items-center gap-2 text-aura-pink">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        Daily Routine Timeline
+                    </h3>
+                    <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Track your daily flow from morning shine to night chill.</p>
+                </div>
+                <button id="open-add-routine-modal" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-aura-pink to-aura-rose hover:scale-105 text-white px-5 py-3 rounded-2xl font-black text-xs uppercase tracking-wider transition-all shadow-lg shadow-pink-500/30">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Add Routine
+                </button>
+            </div>
+
+            <div id="routine-list" class="space-y-3.5">
+                <!-- Dynamic routines injected via JS -->
+            </div>
+        </section>
+
+        <section id="tab-habits" class="tab-content hidden space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/80 dark:bg-slate-800/80 p-5 rounded-3xl border-2 border-amber-200 dark:border-slate-700 shadow-sm">
+                <div>
+                    <h3 class="font-aesthetic text-xl font-black flex items-center gap-2 text-aura-amber">
+                        <i data-lucide="flame" class="w-6 h-6"></i>
+                        Habit Streaks & Glow Up
+                    </h3>
+                    <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Build consistency and ignite your daily streak flame!</p>
+                </div>
+                <button id="open-add-habit-modal" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-aura-amber to-aura-rose hover:scale-105 text-white px-5 py-3 rounded-2xl font-black text-xs uppercase tracking-wider transition-all shadow-lg shadow-amber-500/30">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i> New Habit
+                </button>
+            </div>
+
+            <div id="habits-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Dynamic habits injected via JS -->
+            </div>
+        </section>
+
+        <section id="tab-todo" class="tab-content hidden space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/80 dark:bg-slate-800/80 p-5 rounded-3xl border-2 border-purple-200 dark:border-slate-700 shadow-sm">
+                <div>
+                    <h3 class="font-aesthetic text-xl font-black flex items-center gap-2 text-aura-violet">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        Task & Homework Studio
+                    </h3>
+                    <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Organize your assignments and priority homework list.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Add Task Form -->
+                <div class="glass-aesthetic p-6 rounded-3xl shadow-xl space-y-4 h-fit border-2 border-purple-300 dark:border-purple-800">
+                    <h4 class="font-black text-xs text-aura-violet flex items-center gap-2 uppercase tracking-wider">
+                        <i data-lucide="file-plus" class="w-4 h-4"></i> Create New Task
+                    </h4>
+                    <form id="add-task-form" class="space-y-3.5">
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Task Title</label>
+                            <input type="text" id="task-title" required placeholder="e.g. Math Homework Ch. 4" class="w-full px-4 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-sm font-bold focus:outline-none focus:border-aura-violet">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Category</label>
+                                <select id="task-category" class="w-full px-3 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-xs font-bold focus:outline-none focus:border-aura-violet">
+                                    <option value="Sekolah">School 📚</option>
+                                    <option value="Rumah">Home 🏠</option>
+                                    <option value="Ujian">Exam 📝</option>
+                                    <option value="Les">Course 🎨</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Priority</label>
+                                <select id="task-priority" class="w-full px-3 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-xs font-bold focus:outline-none focus:border-aura-violet">
+                                    <option value="Low">Low 🟢</option>
+                                    <option value="Medium" selected>Medium 🟡</option>
+                                    <option value="High">High 🔴</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-aura-violet to-aura-indigo hover:scale-102 text-white font-black py-3 rounded-2xl text-xs uppercase tracking-wider transition-all shadow-lg shadow-purple-500/30 flex items-center justify-center gap-2">
+                            <i data-lucide="save" class="w-4 h-4"></i> Save Task
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Task List -->
+                <div class="lg:col-span-2 space-y-3.5">
+                    <div class="flex items-center gap-2 overflow-x-auto pb-1">
+                        <button data-filter="all" class="task-filter-btn px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-aura-violet text-white shadow-md">All Tasks</button>
+                        <button data-filter="Sekolah" class="task-filter-btn px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">School</button>
+                        <button data-filter="Rumah" class="task-filter-btn px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">Home</button>
+                        <button data-filter="Ujian" class="task-filter-btn px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">Exam</button>
+                    </div>
+
+                    <div id="tasks-container" class="space-y-3">
+                        <!-- Dynamic tasks injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-pomodoro" class="tab-content hidden space-y-6">
+            <div class="max-w-xl mx-auto glass-aesthetic p-8 rounded-3xl border-4 border-cyan-300 dark:border-cyan-800 shadow-2xl text-center space-y-6 relative overflow-hidden neon-glow-violet">
+                <div>
+                    <span id="pomodoro-mode-badge" class="inline-block px-4 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-aura-cyan to-aura-indigo text-white uppercase tracking-widest mb-3 shadow-md">
+                        🔥 Deep Focus Mode
+                    </span>
+                    <h3 class="font-aesthetic text-3xl font-black text-slate-800 dark:text-white">Aesthetic Focus Timer</h3>
+                    <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1">Study distraction-free with synth sound feedback upon completion!</p>
+                </div>
+
+                <div class="flex justify-center gap-2">
+                    <button data-time="25" class="pomo-preset-btn px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-aura-cyan to-aura-indigo text-white shadow-md">25m Study</button>
+                    <button data-time="15" class="pomo-preset-btn px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-wider bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-200">15m Study</button>
+                    <button data-time="5" class="pomo-preset-btn px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-aura-emerald to-aura-amber text-white">5m Break</button>
+                </div>
+
+                <div class="relative w-64 h-64 mx-auto flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90">
+                        <circle cx="128" cy="128" r="105" stroke="currentColor" stroke-width="14" class="text-slate-200 dark:text-slate-700" fill="transparent" />
+                        <circle id="timer-progress-circle" cx="128" cy="128" r="105" stroke="url(#timer-gradient)" stroke-width="14" class="transition-all duration-1000" fill="transparent" stroke-dasharray="660" stroke-dashoffset="0" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="timer-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#06b6d4" />
+                                <stop offset="50%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#ec4899" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span id="timer-display" class="font-aesthetic text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-aura-cyan via-aura-violet to-aura-pink">25:00</span>
+                        <span id="pomo-status" class="text-xs font-black uppercase tracking-widest text-slate-400 mt-2">Ready to Glow?</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-4">
+                    <button id="pomo-start-btn" class="px-8 py-3.5 bg-gradient-to-r from-aura-cyan via-aura-violet to-aura-pink hover:scale-105 text-white font-black rounded-2xl shadow-xl shadow-cyan-500/30 transition-all uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i> Start
+                    </button>
+                    <button id="pomo-pause-btn" class="px-8 py-3.5 bg-gradient-to-r from-aura-amber to-aura-rose hover:scale-105 text-white font-black rounded-2xl shadow-xl shadow-amber-500/30 transition-all uppercase tracking-wider flex items-center gap-2 hidden">
+                        <i data-lucide="pause" class="w-5 h-5 fill-current"></i> Pause
+                    </button>
+                    <button id="pomo-reset-btn" class="p-3.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 text-slate-700 dark:text-slate-200 rounded-2xl transition-all">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-stats" class="tab-content hidden space-y-6">
+            <div class="bg-white/80 dark:bg-slate-800/80 p-5 rounded-3xl border-2 border-emerald-200 dark:border-slate-700 shadow-sm">
+                <h3 class="font-aesthetic text-xl font-black flex items-center gap-2 text-aura-emerald">
+                    <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                    Aesthetic Productivity Analytics
+                </h3>
+                <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Track student success and completion percentages visually.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-gradient-to-br from-cyan-500 to-blue-600 text-white p-5 rounded-3xl shadow-xl shadow-cyan-500/20 flex items-center justify-between border-2 border-white/20">
+                    <div>
+                        <p class="text-xs font-black uppercase text-cyan-100 tracking-wider">Routines Done</p>
+                        <p id="stat-routine-count" class="font-aesthetic text-3xl font-black mt-1">0/0</p>
+                    </div>
+                    <div class="p-3.5 bg-white/20 rounded-2xl backdrop-blur-md">
+                        <i data-lucide="clock" class="w-7 h-7"></i>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-pink-500 to-rose-600 text-white p-5 rounded-3xl shadow-xl shadow-pink-500/20 flex items-center justify-between border-2 border-white/20">
+                    <div>
+                        <p class="text-xs font-black uppercase text-pink-100 tracking-wider">Habits Kept</p>
+                        <p id="stat-habit-count" class="font-aesthetic text-3xl font-black mt-1">0/0</p>
+                    </div>
+                    <div class="p-3.5 bg-white/20 rounded-2xl backdrop-blur-md">
+                        <i data-lucide="flame" class="w-7 h-7"></i>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-3xl shadow-xl shadow-purple-500/20 flex items-center justify-between border-2 border-white/20">
+                    <div>
+                        <p class="text-xs font-black uppercase text-purple-100 tracking-wider">Tasks Completed</p>
+                        <p id="stat-task-count" class="font-aesthetic text-3xl font-black mt-1">0/0</p>
+                    </div>
+                    <div class="p-3.5 bg-white/20 rounded-2xl backdrop-blur-md">
+                        <i data-lucide="check-circle-2" class="w-7 h-7"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-aesthetic p-6 rounded-3xl border-2 border-emerald-300 dark:border-emerald-800 shadow-xl">
+                <h4 class="font-black text-sm text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <i data-lucide="line-chart" class="w-5 h-5 text-aura-emerald"></i> Goal Chart for <span id="chart-student-name" class="text-aura-pink">Bintang Sekolah</span>
+                </h4>
+                <div class="h-64 relative">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL: CUSTOM NAME -->
+    <div id="student-name-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl border-4 border-amber-400 space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="font-aesthetic text-lg font-black text-amber-500 flex items-center gap-2">
+                    <i data-lucide="user-edit"></i> Edit Custom Student Name
+                </h3>
+                <button class="close-modal text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="save-name-form" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Student / Custom Name</label>
+                    <input type="text" id="input-student-name" required placeholder="e.g. Bintang Sekolah / Aisyah" class="w-full px-4 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm font-bold focus:outline-none focus:border-amber-400">
+                </div>
+                <p class="text-[11px] font-bold text-slate-400">This custom name will be saved and reflected throughout your Scholars Pace experience! ✨</p>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" class="close-modal px-4 py-2.5 rounded-2xl text-xs font-black uppercase bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Cancel</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-2xl text-xs font-black uppercase bg-gradient-to-r from-amber-400 to-aura-pink text-slate-900 shadow-lg shadow-amber-500/30">Save Name</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: ADD ROUTINE -->
+    <div id="add-routine-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl border-4 border-aura-pink space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="font-aesthetic text-lg font-black text-aura-pink flex items-center gap-2">
+                    <i data-lucide="plus-circle"></i> Add Routine Event
+                </h3>
+                <button class="close-modal text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="add-routine-form" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Schedule Time</label>
+                    <input type="time" id="routine-time" required class="w-full px-4 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm font-bold focus:outline-none focus:border-aura-pink">
+                </div>
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Routine Title</label>
+                    <input type="text" id="routine-title" placeholder="e.g. Music Practice / Reading" required class="w-full px-4 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm font-bold focus:outline-none focus:border-aura-pink">
+                </div>
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Notes / Description</label>
+                    <input type="text" id="routine-desc" placeholder="e.g. Prepare notes & sheet music" class="w-full px-4 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm font-bold focus:outline-none focus:border-aura-pink">
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" class="close-modal px-4 py-2.5 rounded-2xl text-xs font-black uppercase bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Cancel</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-2xl text-xs font-black uppercase bg-gradient-to-r from-aura-pink to-aura-rose text-white shadow-lg shadow-pink-500/30">Save Routine</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: ADD HABIT -->
+    <div id="add-habit-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl border-4 border-aura-amber space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="font-aesthetic text-lg font-black text-aura-amber flex items-center gap-2">
+                    <i data-lucide="flame"></i> Create Habit Tracker
+                </h3>
+                <button class="close-modal text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="add-habit-form" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Habit Goal</label>
+                    <input type="text" id="habit-title" placeholder="e.g. Drink 2L Water" required class="w-full px-4 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm font-bold focus:outline-none focus:border-aura-amber">
+                </div>
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-600 dark:text-slate-300 mb-1">Daily Target</label>
+                    <input type="text" id="habit-target" placeholder="e.g. 8 Glasses / Day" required class="w-full px-4 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm font-bold focus:outline-none focus:border-aura-amber">
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" class="close-modal px-4 py-2.5 rounded-2xl text-xs font-black uppercase bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Cancel</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-2xl text-xs font-black uppercase bg-gradient-to-r from-aura-amber to-aura-rose text-white shadow-lg shadow-amber-500/30">Save Habit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 border-2 border-aura-pink pointer-events-none">
+        <i data-lucide="sparkles" class="w-5 h-5 text-aura-pink"></i>
+        <span id="toast-message" class="text-xs font-bold">Successfully updated!</span>
+    </div>
+
+    <script>
+        const DEFAULT_ROUTINES = [
+            { id: '1', time: '05:00', title: 'Morning Wake Up & Prayer', desc: 'Hydrate & make bed neat', icon: 'sun', colorGroup: 'from-amber-400 to-orange-500', completed: false },
+            { id: '2', time: '06:00', title: 'Healthy Breakfast & Shower', desc: 'Pack school bag & check routine', icon: 'coffee', colorGroup: 'from-pink-500 to-rose-500', completed: false },
+            { id: '3', time: '07:00', title: 'School Hours & Study', desc: 'Focus on core subjects & notes', icon: 'book-open', colorGroup: 'from-blue-500 to-cyan-500', completed: false },
+            { id: '4', time: '15:00', title: 'Homecoming & Chill', desc: 'Afternoon lunch & relax', icon: 'home', colorGroup: 'from-emerald-400 to-teal-500', completed: false },
+            { id: '5', time: '16:30', title: 'Sports & Active Break', desc: 'Cycling or workout session', icon: 'bike', colorGroup: 'from-orange-500 to-amber-500', completed: false },
+            { id: '6', time: '19:00', title: 'Night Homework & Review', desc: 'Use Pomodoro timer for focus', icon: 'brain', colorGroup: 'from-purple-500 to-indigo-600', completed: false },
+            { id: '7', time: '21:00', title: 'Night Rest & Sleep', desc: 'Screen-off & 8 hours of sleep', icon: 'moon', colorGroup: 'from-indigo-600 to-purple-900', completed: false }
+        ];
+
+        const DEFAULT_HABITS = [
+            { id: 'h1', title: 'Read Aesthetic Book', target: '20 mins / day', icon: 'book-marked', gradient: 'from-blue-500 to-cyan-400', completed: false, streak: 5 },
+            { id: 'h2', title: 'Tidy Room & Desk', target: 'Every morning', icon: 'sparkles', gradient: 'from-amber-400 to-orange-500', completed: false, streak: 3 },
+            { id: 'h3', title: 'Workout & Fitness', target: '15 mins / day', icon: 'activity', gradient: 'from-emerald-400 to-teal-500', completed: false, streak: 2 },
+            { id: 'h4', title: 'Help Family Out', target: 'Once daily', icon: 'heart', gradient: 'from-pink-500 to-rose-500', completed: false, streak: 7 }
+        ];
+
+        const DEFAULT_TASKS = [
+            { id: 't1', title: 'Math Homework Ch. 4 (Q1-Q10)', category: 'Sekolah', priority: 'High', completed: false },
+            { id: 't2', title: 'Science Exam Summary Review', category: 'Ujian', priority: 'Medium', completed: false }
+        ];
+
+        let state = {
+            studentName: localStorage.getItem('scholarspace_student_name') || 'Bintang Sekolah',
+            routines: JSON.parse(localStorage.getItem('scholarspace_routines')) || DEFAULT_ROUTINES,
+            habits: JSON.parse(localStorage.getItem('scholarspace_habits')) || DEFAULT_HABITS,
+            tasks: JSON.parse(localStorage.getItem('scholarspace_tasks')) || DEFAULT_TASKS,
+            theme: localStorage.getItem('scholarspace_theme') || 'light',
+            avatar: localStorage.getItem('scholarspace_avatar') || '✨'
+        };
+
+        let progressChartInstance = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            updateStudentNameDOM();
+            initGreeting();
+            renderAll();
+            setupEventListeners();
+            initChart();
+            initLucide();
+        });
+
+        function initLucide() {
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function saveState() {
+            localStorage.setItem('scholarspace_student_name', state.studentName);
+            localStorage.setItem('scholarspace_routines', JSON.stringify(state.routines));
+            localStorage.setItem('scholarspace_habits', JSON.stringify(state.habits));
+            localStorage.setItem('scholarspace_tasks', JSON.stringify(state.tasks));
+            localStorage.setItem('scholarspace_avatar', state.avatar);
+            updateOverallProgress();
+            if (progressChartInstance) updateChartData();
+        }
+
+        function updateStudentNameDOM() {
+            const name = state.studentName;
+            document.getElementById('header-student-name').innerText = name;
+            document.getElementById('hero-badge-student-name').innerText = name;
+            document.getElementById('chart-student-name').innerText = name;
+            document.getElementById('input-student-name').value = name;
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function triggerConfetti() {
+            if (window.confetti) {
+                confetti({
+                    particleCount: 55,
+                    spread: 65,
+                    origin: { y: 0.8 },
+                    colors: ['#ec4899', '#a855f7', '#06b6d4', '#10b981', '#f59e0b']
+                });
+            }
+        }
+
+        function initTheme() {
+            if (state.theme === 'dark' || (!('scholarspace_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-toggle-light-icon').classList.remove('hidden');
+                document.getElementById('theme-toggle-dark-icon').classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-toggle-dark-icon').classList.remove('hidden');
+                document.getElementById('theme-toggle-light-icon').classList.add('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                state.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                state.theme = 'dark';
+            }
+            localStorage.setItem('scholarspace_theme', state.theme);
+            initTheme();
+        }
+
+        function initGreeting() {
+            const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+            const today = new Date().toLocaleDateString('en-US', options);
+            document.getElementById('current-date-text').innerText = today;
+
+            const hour = new Date().getHours();
+            let greetingTag = 'GOOD MORNING!';
+            let timeIcon = '☀️';
+
+            if (hour >= 11 && hour < 15) {
+                greetingTag = 'GOOD AFTERNOON!';
+                timeIcon = '🌤️';
+            } else if (hour >= 15 && hour < 18) {
+                greetingTag = 'GOOD EVENING!';
+                timeIcon = '🌇';
+            } else if (hour >= 18 || hour < 5) {
+                greetingTag = 'GOOD NIGHT!';
+                timeIcon = '🌙';
+            }
+
+            document.getElementById('greeting-time-tag').innerText = greetingTag;
+            document.getElementById('time-badge-icon').innerText = timeIcon;
+            document.getElementById('greeting-title').innerText = `Hey ${state.avatar} ${state.studentName}! ✨`;
+        }
+
+        function renderAll() {
+            renderRoutines();
+            renderHabits();
+            renderTasks();
+            updateOverallProgress();
+        }
+
+        function renderRoutines() {
+            const container = document.getElementById('routine-list');
+            container.innerHTML = '';
+
+            state.routines.sort((a, b) => a.time.localeCompare(b.time));
+
+            state.routines.forEach(item => {
+                const card = document.createElement('div');
+                const gradientClass = item.colorGroup || 'from-aura-pink to-aura-violet';
+
+                card.className = `p-4 rounded-3xl border-2 transition-all flex items-center justify-between gap-4 hover:scale-[1.01] ${
+                    item.completed 
+                        ? 'bg-emerald-500/10 border-emerald-400 dark:border-emerald-800 opacity-80' 
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl'
+                }`;
+
+                card.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 rounded-2xl bg-gradient-to-tr ${gradientClass} text-white shadow-md font-extrabold text-xs tracking-wider">
+                            ${item.time}
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm sm:text-base ${item.completed ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-800 dark:text-slate-100'}">${item.title}</h4>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="toggleRoutine('${item.id}')" class="p-2.5 rounded-2xl transition-all shadow-md ${
+                            item.completed 
+                                ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-emerald-500/30' 
+                                : 'bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-400'
+                        }">
+                            <i data-lucide="${item.completed ? 'check-circle-2' : 'circle'}" class="w-6 h-6"></i>
+                        </button>
+                        <button onclick="deleteRoutine('${item.id}')" class="p-2 text-slate-400 hover:text-rose-500 transition-colors">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            initLucide();
+        }
+
+        function toggleRoutine(id) {
+            state.routines = state.routines.map(r => {
+                if (r.id === id) {
+                    const isComp = !r.completed;
+                    if (isComp) triggerConfetti();
+                    return { ...r, completed: isComp };
+                }
+                return r;
+            });
+            saveState();
+            renderRoutines();
+        }
+
+        function deleteRoutine(id) {
+            state.routines = state.routines.filter(r => r.id !== id);
+            saveState();
+            renderRoutines();
+            showToast('Routine deleted!');
+        }
+
+        function renderHabits() {
+            const grid = document.getElementById('habits-grid');
+            grid.innerHTML = '';
+
+            state.habits.forEach(habit => {
+                const card = document.createElement('div');
+                const grad = habit.gradient || 'from-aura-amber to-aura-rose';
+
+                card.className = `p-5 rounded-3xl border-2 transition-all hover:scale-105 shadow-md ${
+                    habit.completed 
+                        ? 'bg-emerald-500/10 border-emerald-400' 
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'
+                }`;
+
+                card.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <div class="p-3.5 rounded-2xl bg-gradient-to-tr ${grad} text-white shadow-lg">
+                            <i data-lucide="${habit.icon || 'star'}" class="w-6 h-6"></i>
+                        </div>
+                        <button onclick="toggleHabit('${habit.id}')" class="p-2.5 rounded-2xl transition-all ${
+                            habit.completed 
+                                ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-lg shadow-emerald-500/30' 
+                                : 'bg-slate-100 dark:bg-slate-700 text-slate-400 hover:bg-slate-200'
+                        }">
+                            <i data-lucide="${habit.completed ? 'check' : 'plus'}" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 space-y-1">
+                        <h4 class="font-black text-sm ${habit.completed ? 'line-through text-slate-400' : 'text-slate-800 dark:text-slate-100'}">${habit.title}</h4>
+                        <p class="text-xs font-bold text-slate-500 dark:text-slate-400">${habit.target}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs font-black">
+                        <span class="flex items-center gap-1 text-aura-amber">
+                            <i data-lucide="flame" class="w-4 h-4 fill-current"></i> ${habit.streak || 0} Day Streak
+                        </span>
+                        <button onclick="deleteHabit('${habit.id}')" class="text-slate-400 hover:text-rose-500">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            initLucide();
+        }
+
+        function toggleHabit(id) {
+            state.habits = state.habits.map(h => {
+                if (h.id === id) {
+                    const isComp = !h.completed;
+                    if (isComp) triggerConfetti();
+                    return {
+                        ...h,
+                        completed: isComp,
+                        streak: isComp ? (h.streak || 0) + 1 : Math.max(0, (h.streak || 1) - 1)
+                    };
+                }
+                return h;
+            });
+            saveState();
+            renderHabits();
+        }
+
+        function deleteHabit(id) {
+            state.habits = state.habits.filter(h => h.id !== id);
+            saveState();
+            renderHabits();
+            showToast('Habit removed!');
+        }
+
+        let currentTaskFilter = 'all';
+
+        function renderTasks() {
+            const container = document.getElementById('tasks-container');
+            container.innerHTML = '';
+
+            const filtered = state.tasks.filter(t => currentTaskFilter === 'all' || t.category === currentTaskFilter);
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="p-8 text-center border-2 border-dashed border-purple-200 dark:border-slate-700 rounded-3xl text-slate-400 text-xs font-bold">
+                        No tasks under this category 🎈
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(task => {
+                const priorityBadges = {
+                    High: 'bg-rose-500 text-white shadow-rose-500/30',
+                    Medium: 'bg-amber-400 text-slate-900 shadow-amber-400/30',
+                    Low: 'bg-emerald-400 text-slate-900 shadow-emerald-400/30'
+                };
+
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-3xl border-2 transition-all flex items-center justify-between gap-3 shadow-md ${
+                    task.completed 
+                        ? 'bg-slate-100/60 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700/50 opacity-75' 
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'
+                }`;
+
+                card.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <button onclick="toggleTask('${task.id}')" class="p-2 rounded-2xl transition-all shadow-md ${
+                            task.completed ? 'bg-gradient-to-r from-aura-violet to-aura-indigo text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-400'
+                        }">
+                            <i data-lucide="${task.completed ? 'check' : 'square'}" class="w-5 h-5"></i>
+                        </button>
+                        <div>
+                            <p class="font-black text-xs sm:text-sm ${task.completed ? 'line-through text-slate-400' : 'text-slate-800 dark:text-slate-100'}">${task.title}</p>
+                            <div class="flex items-center gap-2 mt-1.5">
+                                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">${task.category}</span>
+                                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase shadow-sm ${priorityBadges[task.priority]}">${task.priority}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="deleteTask('${task.id}')" class="text-slate-400 hover:text-rose-500 p-1">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+            initLucide();
+        }
+
+        function toggleTask(id) {
+            state.tasks = state.tasks.map(t => {
+                if (t.id === id) {
+                    const isComp = !t.completed;
+                    if (isComp) triggerConfetti();
+                    return { ...t, completed: isComp };
+                }
+                return t;
+            });
+            saveState();
+            renderTasks();
+        }
+
+        function deleteTask(id) {
+            state.tasks = state.tasks.filter(t => t.id !== id);
+            saveState();
+            renderTasks();
+            showToast('Task removed!');
+        }
+
+        function updateOverallProgress() {
+            const rDone = state.routines.filter(r => r.completed).length;
+            const hDone = state.habits.filter(h => h.completed).length;
+            const tDone = state.tasks.filter(t => t.completed).length;
+
+            const totalItems = state.routines.length + state.habits.length + state.tasks.length;
+            const totalDone = rDone + hDone + tDone;
+
+            const overallPercent = totalItems > 0 ? Math.round((totalDone / totalItems) * 100) : 0;
+
+            document.getElementById('hero-progress-percent').innerText = `${overallPercent}%`;
+            document.getElementById('stat-routine-count').innerText = `${rDone}/${state.routines.length}`;
+            document.getElementById('stat-habit-count').innerText = `${hDone}/${state.habits.length}`;
+            document.getElementById('stat-task-count').innerText = `${tDone}/${state.tasks.length}`;
+        }
+
+        let timerInterval = null;
+        let timerSeconds = 25 * 60;
+        let totalTimerSeconds = 25 * 60;
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timerSeconds / 60);
+            const secs = timerSeconds % 60;
+            document.getElementById('timer-display').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+            const circle = document.getElementById('timer-progress-circle');
+            const circumference = 660;
+            const offset = circumference - (timerSeconds / totalTimerSeconds) * circumference;
+            circle.style.strokeDashoffset = `${offset}`;
+        }
+
+        function playVictoryChime() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const notes = [523.25, 659.25, 783.99, 1046.50];
+                notes.forEach((freq, idx) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0.1, ctx.currentTime + idx * 0.12);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime + idx * 0.12);
+                    osc.stop(ctx.currentTime + idx * 0.12 + 0.3);
+                });
+            } catch(e) { console.log(e); }
+        }
+
+        function startTimer() {
+            if (timerInterval) return;
+            document.getElementById('pomo-start-btn').classList.add('hidden');
+            document.getElementById('pomo-pause-btn').classList.remove('hidden');
+            document.getElementById('pomo-status').innerText = 'Focus Session Active 🔥';
+
+            timerInterval = setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    playVictoryChime();
+                    triggerConfetti();
+                    showToast(`Focus session complete, ${state.studentName}! 🎉`);
+                    document.getElementById('pomo-status').innerText = 'Complete! Take a rehat.';
+                    document.getElementById('pomo-start-btn').classList.remove('hidden');
+                    document.getElementById('pomo-pause-btn').classList.add('hidden');
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            document.getElementById('pomo-start-btn').classList.remove('hidden');
+            document.getElementById('pomo-pause-btn').classList.add('hidden');
+            document.getElementById('pomo-status').innerText = 'Timer Paused';
+        }
+
+        function resetTimer(minutes = 25) {
+            pauseTimer();
+            timerSeconds = minutes * 60;
+            totalTimerSeconds = minutes * 60;
+            updateTimerDisplay();
+            document.getElementById('pomo-status').innerText = 'Ready to Glow?';
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            progressChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: getChartData(),
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { callback: v => v + '%' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function getChartData() {
+            const rDone = state.routines.filter(r => r.completed).length;
+            const rPct = state.routines.length ? Math.round((rDone / state.routines.length) * 100) : 0;
+
+            const hDone = state.habits.filter(h => h.completed).length;
+            const hPct = state.habits.length ? Math.round((hDone / state.habits.length) * 100) : 0;
+
+            const tDone = state.tasks.filter(t => t.completed).length;
+            const tPct = state.tasks.length ? Math.round((tDone / state.tasks.length) * 100) : 0;
+
+            return {
+                labels: ['Daily Routines', 'Habit Streaks', 'Tasks & HW'],
+                datasets: [{
+                    label: '% Completed',
+                    data: [rPct, hPct, tPct],
+                    backgroundColor: ['#06b6d4', '#ec4899', '#a855f7'],
+                    borderRadius: 16
+                }]
+            };
+        }
+
+        function updateChartData() {
+            if (!progressChartInstance) return;
+            progressChartInstance.data = getChartData();
+            progressChartInstance.update();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+            const nameModal = document.getElementById('student-name-modal');
+            const openNameModal = () => {
+                document.getElementById('input-student-name').value = state.studentName;
+                nameModal.classList.remove('hidden');
+            };
+
+            document.getElementById('open-name-modal-btn').addEventListener('click', openNameModal);
+            document.getElementById('trigger-name-modal-hero').addEventListener('click', openNameModal);
+
+            document.getElementById('save-name-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const newName = document.getElementById('input-student-name').value.trim();
+                if (newName) {
+                    state.studentName = newName;
+                    saveState();
+                    updateStudentNameDOM();
+                    initGreeting();
+                    nameModal.classList.add('hidden');
+                    showToast(`Name updated to "${newName}"! ✨`);
+                }
+            });
+
+            document.querySelectorAll('.avatar-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.avatar-btn').forEach(b => b.classList.remove('bg-white/20'));
+                    btn.classList.add('bg-white/20');
+                    state.avatar = btn.getAttribute('data-avatar');
+                    initGreeting();
+                    saveState();
+                });
+            });
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-btn').forEach(b => {
+                        b.classList.remove('bg-gradient-to-r', 'from-aura-pink', 'to-aura-violet', 'text-white', 'shadow-lg');
+                        b.classList.add('text-slate-600', 'dark:text-slate-300');
+                    });
+                    btn.classList.add('bg-gradient-to-r', 'from-aura-pink', 'to-aura-violet', 'text-white', 'shadow-lg');
+                    btn.classList.remove('text-slate-600', 'dark:text-slate-300');
+
+                    const targetTab = btn.getAttribute('data-tab');
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+                    document.getElementById(`tab-${targetTab}`).classList.remove('hidden');
+                });
+            });
+
+            document.getElementById('reset-btn').addEventListener('click', () => {
+                if (confirm('Do you want to reset today\'s routine & habit completions?')) {
+                    state.routines = state.routines.map(r => ({ ...r, completed: false }));
+                    state.habits = state.habits.map(h => ({ ...h, completed: false }));
+                    saveState();
+                    renderAll();
+                    showToast('Daily progress reset!');
+                }
+            });
+
+            const rModal = document.getElementById('add-routine-modal');
+            document.getElementById('open-add-routine-modal').addEventListener('click', () => rModal.classList.remove('hidden'));
+            document.getElementById('add-routine-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const colors = ['from-amber-400 to-orange-500', 'from-pink-500 to-rose-500', 'from-blue-500 to-cyan-500', 'from-purple-500 to-indigo-600', 'from-emerald-400 to-teal-500'];
+                const newRoutine = {
+                    id: Date.now().toString(),
+                    time: document.getElementById('routine-time').value,
+                    title: document.getElementById('routine-title').value,
+                    desc: document.getElementById('routine-desc').value || 'Daily Routine',
+                    colorGroup: colors[Math.floor(Math.random() * colors.length)],
+                    completed: false
+                };
+                state.routines.push(newRoutine);
+                saveState();
+                renderRoutines();
+                rModal.classList.add('hidden');
+                e.target.reset();
+                showToast('Routine added!');
+            });
+
+            const hModal = document.getElementById('add-habit-modal');
+            document.getElementById('open-add-habit-modal').addEventListener('click', () => hModal.classList.remove('hidden'));
+            document.getElementById('add-habit-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const grads = ['from-blue-500 to-cyan-400', 'from-amber-400 to-orange-500', 'from-emerald-400 to-teal-500', 'from-pink-500 to-rose-500'];
+                const newHabit = {
+                    id: 'h_' + Date.now(),
+                    title: document.getElementById('habit-title').value,
+                    target: document.getElementById('habit-target').value,
+                    icon: 'star',
+                    gradient: grads[Math.floor(Math.random() * grads.length)],
+                    completed: false,
+                    streak: 0
+                };
+                state.habits.push(newHabit);
+                saveState();
+                renderHabits();
+                hModal.classList.add('hidden');
+                e.target.reset();
+                showToast('Habit added!');
+            });
+
+            document.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    rModal.classList.add('hidden');
+                    hModal.classList.add('hidden');
+                    nameModal.classList.add('hidden');
+                });
+            });
+
+            document.getElementById('add-task-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const newTask = {
+                    id: 't_' + Date.now(),
+                    title: document.getElementById('task-title').value,
+                    category: document.getElementById('task-category').value,
+                    priority: document.getElementById('task-priority').value,
+                    completed: false
+                };
+                state.tasks.push(newTask);
+                saveState();
+                renderTasks();
+                e.target.reset();
+                showToast('Task saved!');
+            });
+
+            document.querySelectorAll('.task-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.task-filter-btn').forEach(b => {
+                        b.classList.remove('bg-aura-violet', 'text-white');
+                        b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+                    });
+                    btn.classList.add('bg-aura-violet', 'text-white');
+                    currentTaskFilter = btn.getAttribute('data-filter');
+                    renderTasks();
+                });
+            });
+
+            document.getElementById('pomo-start-btn').addEventListener('click', startTimer);
+            document.getElementById('pomo-pause-btn').addEventListener('click', pauseTimer);
+            document.getElementById('pomo-reset-btn').addEventListener('click', () => resetTimer(25));
+
+            document.querySelectorAll('.pomo-preset-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const mins = parseInt(btn.getAttribute('data-time'));
+                    resetTimer(mins);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
